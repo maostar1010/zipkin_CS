@@ -29,6 +29,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     # skip commits made by the release plugin
     if: "!contains(github.event.head_commit.message, 'maven-release-plugin')"
+    timeout-minutes: 5
     strategy:
       matrix:
         include:  # Not ubuntu as already tested as a part of the docker job
@@ -65,6 +66,7 @@ jobs:
     runs-on: ubuntu-22.04  # newest available distribution, aka jellyfish
     # skip commits made by the release plugin
     if: "!contains(github.event.head_commit.message, 'maven-release-plugin')"
+    timeout-minutes: 10
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4

@@ -104,7 +104,7 @@ jobs:
           # Note: The 'docker/setup-buildx-action' often handles
           # docker-compose implicitly, but this is a robust way
           # to ensure it's available.
-          install-docker-compose: true
+          install: true
       - name: Build zipkin-server  # redundant, but needed for docker/README.md
         run: ./mvnw --also-make -pl zipkin-server clean package
         env:
